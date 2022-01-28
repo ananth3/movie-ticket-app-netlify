@@ -126,7 +126,7 @@ const Login = (props) => {
         // password.current.setCustomValidity("Username or Password incorrect");
         setError(res.data);
       } else {
-        // history.push("/");
+        history.push("/");
         // window.location.reload();
       }
     } catch (err) {
