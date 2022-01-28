@@ -18,28 +18,22 @@ function App() {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    axiosInstance
-      .get("/auth/user/auth-check")
-      .then((res) => {
-        setAuth(res.data);
-      })
-      .catch((err) => {
-        console.log("Error in log in");
-      });
+    const authCheck = async () => {
+      await axiosInstance.get("/auth/user/auth-check");
+      setAuth(authCheck.data);
+    };
+    authCheck();
   }, []);
   console.log(auth);
 
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    axiosInstance
-      .get("/auth/users")
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => {
-        console.log("Error in log in");
-      });
+    const authUser = async () => {
+      const res = await axiosInstance.get("/auth/users");
+      setUser(res.data);
+    };
+    authUser();
   }, []);
   console.log(user);
 
