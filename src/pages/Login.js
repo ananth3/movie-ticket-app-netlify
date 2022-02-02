@@ -127,7 +127,7 @@ const Login = (props) => {
         setError(res.data);
       } else {
         history.push("/");
-        // window.location.reload();
+        window.location.reload();
       }
     } catch (err) {
       console.log(err);
